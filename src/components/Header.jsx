@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import networking from "../assets/networking.png";
 import logowithname from "../assets/LogoWithName.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const wallet = "Connected";
+  const navigate = useNavigate();
   // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Reference to the mobile menu container
@@ -38,7 +41,7 @@ const Header = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNMjggNjZMMCA1MEwyOCAzNGw1NiAzMnoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')]"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 py-8">
+      <div className="relative container mx-auto px-4 py-5">
         {/* Navigation */}
         <nav className="flex items-center justify-between mb-16">
           {/* Mobile Menu Button */}
@@ -64,7 +67,7 @@ const Header = () => {
             </button>
           </div>
           <div className="hidden md:flex flex items-center space-x-4 z-40">
-            <a href="index">
+            <a href="/">
               <img
                 src={logowithname}
                 alt="Mega Base Lotto"
@@ -98,9 +101,15 @@ const Header = () => {
               Contact
             </a>
           </div>
-          <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-30">
-            Connect Wallet
-          </button>
+          {wallet ? (
+            <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-30">
+              {wallet}
+            </button>
+          ) : (
+            <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-30">
+              Connect Wallet
+            </button>
+          )}
         </nav>
 
         {/* Mobile Menu */}
@@ -112,7 +121,7 @@ const Header = () => {
         >
           <div className="flex flex-col h-full">
             <div className="flex flex-col items-center py-4 z-50">
-              <a href="index">
+              <a href="/">
                 <img
                   src={logowithname}
                   alt="Mega Base Lotto"
@@ -158,12 +167,21 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <button
-              onClick={() => (window.location.href = "/connect-wallet")}
-              className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
-            >
-              Connect Wallet
-            </button>
+            {wallet ? (
+              <button
+                onClick={() => (window.location.href = "/connect-wallet")}
+                className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
+              >
+                {wallet}
+              </button>
+            ) : (
+              <button
+                onClick={() => (window.location.href = "/connect-wallet")}
+                className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
+              >
+                Connect Wallet
+              </button>
+            )}
           </div>
         </div>
 
@@ -172,18 +190,18 @@ const Header = () => {
           <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-500">
-                Transform Your Destiny
+                The Ultimate Memecoin Lottery Game
               </span>
             </h1>
             <p className="text-xl mb-8 text-gray-300">
-              Experience the thrill of life-changing opportunities with every
-              ticket. Your journey to extraordinary begins here.
+              Experience the thrill of crypto lottery with Mega Base Lotto -
+              where every token is a ticket to win big
             </p>
             <button
-              onClick={() => (window.location.href = "/create")}
+              onClick={() => navigate("/create")}
               className="bg-white text-purple-900 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 relative z-10"
             >
-              Create Jackpot
+              Create Lottery
             </button>
           </div>
           <div className="md:w-1/2 flex justify-center">
