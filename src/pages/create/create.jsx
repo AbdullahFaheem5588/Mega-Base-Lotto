@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SubHeader from "../../components/SubHeader";
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 export default function Create() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -9,17 +13,39 @@ export default function Create() {
   const [ticketPrice, setTicketPrice] = useState("");
   const [expiresAt, setExpiresAt] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({
+
+    if (
+      !title ||
+      !description ||
+      !imageUrl ||
+      !prize ||
+      !ticketPrice ||
+      !expiresAt
+    ) {
+      toast.error("Please fill out all fields.");
+      return;
+    }
+
+    const params = {
       title,
       description,
       imageUrl,
       prize,
       ticketPrice,
-      expiresAt,
-    });
-    onReset();
+      expiresAt: new Date(expiresAt).getTime(),
+    };
+
+    try {
+      //await createJackpot(params);
+      toast.success("Lottery created successfully 👌");
+      console.log(params);
+      navigate("/");
+      onReset();
+    } catch (error) {
+      toast.error("Encountered an error 🤯");
+    }
   };
 
   const onReset = () => {
@@ -33,6 +59,10 @@ export default function Create() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <Helmet>
+        <title>Create Lottery - Mega Base Lotto</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Helmet>
       <div className="relative z-10 min-h-screen flex flex-col">
         <SubHeader />
         <div className="flex flex-col justify-center items-center mt-5 px-4 sm:px-6 lg:px-8">
@@ -43,7 +73,7 @@ export default function Create() {
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Create your own lottery with Mega Base Lotto. Set prizes, token
               prices, and manage everything easily through our platform. Start
-              bringing your lottery vision to life today
+              bringing your lottery vision to life today.
             </p>
           </div>
 

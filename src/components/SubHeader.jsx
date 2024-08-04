@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import logowithname from "../assets/LogoWithName.png";
+import { useSelector } from "react-redux";
+import { connectWallet, truncate } from "../services/blockchain";
 
 const SubHeader = () => {
-  const wallet = "Connected";
+  const { wallet } = useSelector((states) => states.globalStates);
   // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Reference to the mobile menu container
@@ -42,7 +44,7 @@ const SubHeader = () => {
         {/* Navigation */}
         <nav className="flex items-center justify-between">
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center z-50">
+          <div className="md:hidden flex items-center z-1">
             <button
               onClick={toggleMenu}
               className="text-white focus:outline-none transition-transform duration-300 transform hover:scale-110"
@@ -74,9 +76,9 @@ const SubHeader = () => {
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6 text-sm font-medium z-40">
+          <div className="hidden md:flex items-center space-x-6 text-sm font-medium z-1">
             <a
-              href="#home"
+              href="/"
               className="hover:text-pink-400 transition-colors duration-300"
             >
               Home
@@ -102,11 +104,14 @@ const SubHeader = () => {
           </div>
 
           {wallet ? (
-            <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-30">
-              {wallet}
+            <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-1">
+              {truncate(wallet, 4, 4, 11)}
             </button>
           ) : (
-            <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-30">
+            <button
+              onClick={connectWallet}
+              className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 hidden md:block z-1"
+            >
               Connect Wallet
             </button>
           )}
@@ -116,7 +121,7 @@ const SubHeader = () => {
         <div
           ref={menuRef}
           className={`fixed top-0 left-0 w-64 bg-purple-900 text-white h-screen transform transition-transform duration-300 ${
-            isMenuOpen ? "translate-x-0 z-50" : "-translate-x-full z-40"
+            isMenuOpen ? "translate-x-0 z-50" : "-translate-x-full z-50"
           }`}
         >
           <div className="flex flex-col h-full">
@@ -131,7 +136,7 @@ const SubHeader = () => {
               <ul className="flex flex-col w-full p-4 space-y-4 overflow-y-auto">
                 <li>
                   <a
-                    href="#home"
+                    href="/"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -168,15 +173,15 @@ const SubHeader = () => {
               </ul>
             </div>
             {wallet ? (
-              <button
-                onClick={() => (window.location.href = "/connect-wallet")}
-                className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
-              >
-                {wallet}
+              <button className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto">
+                {truncate(wallet, 4, 4, 11)}
               </button>
             ) : (
               <button
-                onClick={() => (window.location.href = "/connect-wallet")}
+                onClick={() => {
+                  connectWallet();
+                  setIsMenuOpen(false);
+                }}
                 className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
               >
                 Connect Wallet

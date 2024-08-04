@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const Countdown = ({ timestamp }) => {
-  console.log(timestamp);
   const calculateTimeLeft = (targetTimestamp) => {
     const now = Date.now();
     const difference = targetTimestamp - now;
@@ -31,7 +30,6 @@ const Countdown = ({ timestamp }) => {
     const interval = setInterval(() => {
       const updatedTimeLeft = calculateTimeLeft(timestamp);
       setTimeLeft(updatedTimeLeft);
-      console.log("Time left:", updatedTimeLeft); // Debug log
     }, 1000);
 
     return () => clearInterval(interval);

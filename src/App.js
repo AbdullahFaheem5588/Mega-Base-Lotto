@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Create from "./pages/create/create";
-import LotteryDetails from "./pages/lotteries/LotteryDetails";
+import LotteryDetails from "./pages/details/LotteryDetails";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
+import LotteryResult from "./pages/results/LotteryResult";
+import { monitorWalletConnection } from "./services/blockchain";
 
 function App() {
+  useEffect(() => {
+    monitorWalletConnection();
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
@@ -15,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
           <Route path="/lotterydetails" element={<LotteryDetails />} />
+          <Route path="/lotteryresult" element={<LotteryResult />} />
         </Routes>
         <ToastContainer
           position="bottom-center"
