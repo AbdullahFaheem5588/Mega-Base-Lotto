@@ -6,6 +6,4 @@ export const globalStates = {
   luckyNumbers: [],
   purchasedNumbers: [],
   participants: [],
-  group: null,
-  currentUser: null,
 };

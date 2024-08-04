@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaEthereum } from "react-icons/fa";
 import Countdown from "./Countdown";
 import Generator from "./Generator";
-import AuthChat from "./AuthChat";
 import { useSelector } from "react-redux";
-import Chat from "./Chat";
 import { formatDate } from "../services/blockchain";
 
 const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
@@ -13,8 +11,6 @@ const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
   console.log(wallet);
   const navigate = useNavigate();
   const [generateModalIsOpen, setGenerateModalIsOpen] = useState(false);
-  const [authChatModalIsOpen, setAuthChatModalIsOpen] = useState(false);
-  const [chatModalIsOpen, setChatModalIsOpen] = useState(false);
 
   const handlePurchase = (luckyNumberId) => {
     alert("Ticket purchased successfully " + luckyNumberId);
@@ -22,12 +18,6 @@ const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
 
   const toggleGenerateModal = () => {
     setGenerateModalIsOpen(!generateModalIsOpen);
-  };
-  const toggleAuthChatModal = () => {
-    setAuthChatModalIsOpen(!authChatModalIsOpen);
-  };
-  const toggleChatModal = () => {
-    setChatModalIsOpen(!chatModalIsOpen);
   };
 
   return (
@@ -74,20 +64,6 @@ const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
             className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
           >
             Draw Result
-          </button>
-
-          <button
-            onClick={toggleAuthChatModal}
-            className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
-          >
-            Login Chat
-          </button>
-
-          <button
-            onClick={toggleChatModal}
-            className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
-          >
-            Enter Chat
           </button>
         </div>
       </div>
@@ -147,12 +123,6 @@ const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
         </table>
       </div>
       <Generator isOpen={generateModalIsOpen} onClose={toggleGenerateModal} />
-      <AuthChat isOpen={authChatModalIsOpen} onClose={toggleAuthChatModal} />
-      <Chat
-        id={lottery.id}
-        isOpen={chatModalIsOpen}
-        onClose={toggleChatModal}
-      />
     </div>
   );
 };

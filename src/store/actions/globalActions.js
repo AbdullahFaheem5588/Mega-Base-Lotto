@@ -20,10 +20,4 @@ export const globalActions = {
   setParticipants: (state, action) => {
     state.participants = action.payload;
   },
-  setGroup: (state, action) => {
-    state.group = action.payload;
-  },
-  setCurrentUser: (state, action) => {
-    state.currentUser = action.payload;
-  },
 };
