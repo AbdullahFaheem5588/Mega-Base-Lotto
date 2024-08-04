@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import LotteryResult from "./pages/results/LotteryResult";
 import { monitorWalletConnection } from "./services/blockchain";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/lotterydetails" element={<LotteryDetails />} />
           <Route path="/lotteryresult" element={<LotteryResult />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
         <ToastContainer
           position="bottom-center"

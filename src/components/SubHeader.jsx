@@ -84,22 +84,10 @@ const SubHeader = () => {
               Home
             </a>
             <a
-              href="#how-to-play"
+              href="aboutus"
               className="hover:text-pink-400 transition-colors duration-300"
             >
-              How To Play
-            </a>
-            <a
-              href="#all-lottery"
-              className="hover:text-pink-400 transition-colors duration-300"
-            >
-              All Lottery
-            </a>
-            <a
-              href="#contact"
-              className="hover:text-pink-400 transition-colors duration-300"
-            >
-              Contact
+              About Us
             </a>
           </div>
 
@@ -145,29 +133,11 @@ const SubHeader = () => {
                 </li>
                 <li>
                   <a
-                    href="#how-to-play"
+                    href="aboutus"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    How To Play
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#all-lottery"
-                    className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    All Lottery
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Contact
+                    About Us
                   </a>
                 </li>
               </ul>

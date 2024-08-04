@@ -2,16 +2,10 @@ export const globalActions = {
   setWallet: (state, action) => {
     state.wallet = action.payload;
   },
-  setJackpots: (state, action) => {
+  setLotteries: (state, action) => {
     state.jackpots = action.payload;
   },
-  setGeneratorModal: (state, action) => {
-    state.generatorModal = action.payload;
-  },
-  setWinnersModal: (state, action) => {
-    state.winnersModal = action.payload;
-  },
-  setJackpot: (state, action) => {
+  setLottery: (state, action) => {
     state.jackpot = action.payload;
   },
   setLuckyNumbers: (state, action) => {
@@ -25,5 +19,11 @@ export const globalActions = {
   },
   setParticipants: (state, action) => {
     state.participants = action.payload;
+  },
+  setGroup: (state, action) => {
+    state.group = action.payload;
+  },
+  setCurrentUser: (state, action) => {
+    state.currentUser = action.payload;
   },
 };

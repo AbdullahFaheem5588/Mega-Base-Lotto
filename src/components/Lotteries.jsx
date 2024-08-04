@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../services/blockchain";
 
 const Lotteries = ({ Lotteries }) => {
   return (
@@ -46,7 +47,9 @@ const Lottery = ({ lottery }) => {
             <p className="text-green-400 text-xl font-semibold">
               Upto: {lottery.prize} ETH
             </p>
-            <p className="text-sm text-gray-400">Draws On: {lottery.drawsAt}</p>
+            <p className="text-sm text-gray-400">
+              Draws On: {formatDate(lottery.drawsAt)}
+            </p>
           </div>
         </div>
         <div className="py-4">

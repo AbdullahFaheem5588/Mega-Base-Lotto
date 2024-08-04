@@ -242,12 +242,14 @@ const formatDate = (timestamp) => {
     "Dec",
   ];
 
+  // Getting individual date components
   const dayOfWeek = daysOfWeek[date.getDay()];
   const monthOfYear = monthsOfYear[date.getMonth()];
   const dayOfMonth = date.getDate();
   const year = date.getFullYear();
 
-  return `${dayOfWeek} ${monthOfYear} ${dayOfMonth}, ${year}`;
+  // Formatting date string
+  return `${dayOfWeek}, ${monthOfYear} ${dayOfMonth}, ${year}`;
 };
 
 const truncate = (text, startChars, endChars, maxLength) => {
@@ -314,7 +316,7 @@ const structuredParticipants = (participants) =>
   }));
 
 const reportError = (error) => {
-  console.log(error.message);
+  toast.error(error);
 };
 
 export {
@@ -332,4 +334,5 @@ export {
   getLottery,
   buyTicket,
   truncate,
+  formatDate,
 };

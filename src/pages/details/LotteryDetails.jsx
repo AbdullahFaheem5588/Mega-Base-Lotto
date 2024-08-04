@@ -8,8 +8,6 @@ import {
   generateLotteryParticipants,
 } from "../../services/fakeData";
 import { Helmet } from "react-helmet";
-//import AuthChat from "../../components/AuthChat";
-//import Chat from "../../components/Chat";
 
 const LotteryDetails = () => {
   const location = useLocation();
@@ -33,10 +31,6 @@ const LotteryDetails = () => {
             luckyNumbers={luckyNumbers}
             participants={purchasedNumbers}
           />
-          {/*<AuthChat isOpen={false} />
-           
-      
-      <Chat id="sample-id" /> */}
         </div>
       </div>
     </div>
