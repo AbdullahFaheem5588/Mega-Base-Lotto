@@ -5,66 +5,30 @@ function generateLottery(id) {
     Date.now() + expiresIn * 24 * 60 * 60 * 1000
   ).getTime();
 
-  if (id === "100") {
-    //Added My wallet address to test Generate Component
-    return {
-      id: "1",
-      title: "Special Lottery",
-      description: "This is a special dummy lottery",
-      owner: "0x7052d2d9cebabe38ea1838a606dc52f68a268263",
-      prize: "50.00",
-      ticketPrice: "0.05",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-      createdAt: new Date("2022-06-01").getTime(),
-      drawsAt: new Date("2022-12-01").getTime(),
-      expiresAt: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).getTime(), // 10 days from now
-      participants: 50,
-      drawn: false,
-    };
-  } else {
-    return {
-      id,
-      title: `Lottery ${id}`,
-      description: `This is the ${id} lottery`,
-      owner: generateRandomEthereumAddress(),
-      prize: getRandomFloat(10, 100).toFixed(2),
-      ticketPrice: getRandomFloat(0.01, 0.1).toFixed(2),
-      image,
-      drawsAt: getRandomTimestamp(
-        new Date("2022-01-01").getTime(),
-        new Date("2022-12-31").getTime()
-      ),
-      createdAt: getRandomTimestamp(
-        new Date("2022-01-01").getTime(),
-        new Date("2022-12-31").getTime()
-      ),
-      expiresAt,
-      participants: getRandomInt(10, 100),
-      drawn: false,
-    };
-  }
+  return {
+    id,
+    title: `Lottery ${id}`,
+    description: `This is the ${id} lottery`,
+    owner: generateRandomEthereumAddress(),
+    prize: getRandomFloat(10, 100).toFixed(2),
+    ticketPrice: getRandomFloat(0.01, 0.1).toFixed(2),
+    image,
+    drawsAt: getRandomTimestamp(
+      new Date("2022-01-01").getTime(),
+      new Date("2022-12-31").getTime()
+    ),
+    createdAt: getRandomTimestamp(
+      new Date("2022-01-01").getTime(),
+      new Date("2022-12-31").getTime()
+    ),
+    expiresAt,
+    participants: getRandomInt(10, 100),
+    drawn: false,
+  };
 }
 
 const generateLotteries = (n) => {
   const lotteries = [];
-
-  lotteries.push({
-    //Added My wallet address to test Generate Component
-    id: "100",
-    title: "Special Lottery",
-    description: "This is a special dummy lottery",
-    owner: "0x7052d2d9cebabe38ea1838a606dc52f68a268263",
-    prize: "50.00",
-    ticketPrice: "0.05",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-    createdAt: new Date("2022-06-01").getTime(),
-    drawsAt: new Date("2022-12-01").getTime(),
-    expiresAt: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).getTime(), // 10 days from now
-    participants: 50,
-    drawn: false,
-  });
 
   for (let i = 1; i <= n; i++) {
     const id = i.toString();
