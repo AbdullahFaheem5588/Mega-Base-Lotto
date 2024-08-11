@@ -60,7 +60,7 @@ const Lottery = ({ lottery }) => {
         <button
           onClick={() =>
             navigate("lotterydetails", {
-              state: { id: lottery.id },
+              state: { lottery: lottery },
             })
           }
           className="block w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 py-2 px-4 rounded-md text-white font-bold text-center mt-4 shadow-md hover:shadow-xl transition-transform transform hover:scale-105"

@@ -8,7 +8,8 @@ import { formatDate } from "../services/blockchain";
 
 const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
   const { wallet } = useSelector((states) => states.globalStates);
-  console.log(wallet);
+  console.log("Wallet: ", wallet);
+  console.log("lottery owner: ", lottery.owner);
   const navigate = useNavigate();
   const [generateModalIsOpen, setGenerateModalIsOpen] = useState(false);
 
@@ -53,18 +54,18 @@ const LotteryTable = ({ lottery, luckyNumbers, participants }) => {
               >
                 Generate Lucky Numbers
               </button>
+              <button
+                onClick={() =>
+                  navigate("/lotteryresult", {
+                    state: { lottery: lottery },
+                  })
+                }
+                className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
+              >
+                Draw Result
+              </button>
             </>
           )}
-          <button
-            onClick={() =>
-              navigate("/lotteryresult", {
-                state: { id: lottery.id },
-              })
-            }
-            className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 mt-auto mb-4 mx-auto"
-          >
-            Draw Result
-          </button>
         </div>
       </div>
 

@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import Lotteries from "../components/Lotteries";
-import { generateLotteries } from "../services/fakeData";
 import { Helmet } from "react-helmet";
+import { monitorWalletConnection } from "../services/blockchain";
 
 export default function Home() {
-  const [lotteries, setLotteries] = useState([]);
+  const dispatch = useDispatch();
+  const lotteries = useSelector((state) => state.globalStates.lotteries);
+  const effectRan = useRef(false);
 
   useEffect(() => {
-    const fetchLotteries = async () => {
-      try {
-        const data = generateLotteries(5);
-        setLotteries(data);
-      } catch (error) {
-        console.error("Error fetching Lotteries:", error);
-      }
-    };
+    if (effectRan.current === false) {
+      console.log(lotteries);
+      monitorWalletConnection();
+      effectRan.current = true;
+    }
 
-    fetchLotteries();
-  }, []);
+    return () => {
+      effectRan.current = true;
+    };
+  }, [dispatch]);
 
   return (
     <div className="min-h-screen bg-gray-100">

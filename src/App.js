@@ -7,14 +7,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import LotteryResult from "./pages/results/LotteryResult";
-import { monitorWalletConnection } from "./services/blockchain";
 import AboutUs from "./pages/AboutUs";
 
 function App() {
-  useEffect(() => {
-    monitorWalletConnection();
-  }, []);
-
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">

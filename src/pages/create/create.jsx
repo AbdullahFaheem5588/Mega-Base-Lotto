@@ -3,9 +3,14 @@ import { useNavigate } from "react-router-dom";
 import SubHeader from "../../components/SubHeader";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from "react-redux";
+import { globalActions } from "../../store/globalSlices";
 
 export default function Create() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const id = useSelector((state) => state.globalStates.lotteries).length + 1;
+  const wallet = useSelector((state) => state.globalStates.wallet);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -14,37 +19,49 @@ export default function Create() {
   const [expiresAt, setExpiresAt] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    if (wallet.length > 0) {
+      e.preventDefault();
 
-    if (
-      !title ||
-      !description ||
-      !imageUrl ||
-      !prize ||
-      !ticketPrice ||
-      !expiresAt
-    ) {
-      toast.error("Please fill out all fields.");
-      return;
-    }
+      if (
+        !title ||
+        !description ||
+        !imageUrl ||
+        !prize ||
+        !ticketPrice ||
+        !expiresAt
+      ) {
+        toast.error("Please fill out all fields.");
+        return;
+      }
 
-    const params = {
-      title,
-      description,
-      imageUrl,
-      prize,
-      ticketPrice,
-      expiresAt: new Date(expiresAt).getTime(),
-    };
+      const params = {
+        id: id,
+        title: title,
+        description: description,
+        owner: wallet,
+        prize: prize,
+        ticketPrice: ticketPrice,
+        image: imageUrl,
+        createdAt: new Date().getTime(),
+        drawsAt: new Date(expiresAt).getTime(),
+        expiresAt: new Date(expiresAt).getTime(),
+        participants: 0,
+        drawn: false,
+      };
 
-    try {
-      //await createJackpot(params);
-      toast.success("Lottery created successfully 👌");
-      console.log(params);
-      navigate("/");
-      onReset();
-    } catch (error) {
-      toast.error("Encountered an error 🤯");
+      try {
+        // Dispatch the addLottery action with the params
+        dispatch(globalActions.addLottery(params));
+
+        toast.success("Lottery created successfully 👌");
+        console.log(params);
+        navigate("/");
+        onReset();
+      } catch (error) {
+        toast.error("Encountered an error 🤯");
+      }
+    } else {
+      toast.error("Please, connect wallet, no accounts found.");
     }
   };
 

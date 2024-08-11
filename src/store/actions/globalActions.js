@@ -3,10 +3,13 @@ export const globalActions = {
     state.wallet = action.payload;
   },
   setLotteries: (state, action) => {
-    state.jackpots = action.payload;
+    state.lotteries = action.payload;
+  },
+  addLottery: (state, action) => {
+    state.lotteries.push(action.payload);
   },
   setLottery: (state, action) => {
-    state.jackpot = action.payload;
+    state.lottery = action.payload;
   },
   setLuckyNumbers: (state, action) => {
     state.luckyNumbers = action.payload;

@@ -11,10 +11,9 @@ import { Helmet } from "react-helmet";
 
 const LotteryResult = ({}) => {
   const location = useLocation();
-  const { id } = location.state || {};
-  const lottery = generateLottery(id);
+  const { lottery } = location.state || {};
   const lotteryResult = [];
-  const participantsList = generateLotteryParticipants(id);
+  const participantsList = generateLotteryParticipants(lottery.id);
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">

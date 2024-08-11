@@ -27,52 +27,6 @@ function generateLottery(id) {
   };
 }
 
-const generateLotteries = (n) => {
-  const lotteries = [];
-
-  for (let i = 1; i <= n; i++) {
-    const id = i.toString();
-    const title = `Lottery ${id}`;
-    const description = `This is the ${i} lottery`;
-    const owner = generateRandomEthereumAddress();
-    const prize = getRandomFloat(10, 100).toFixed(2);
-    const ticketPrice = getRandomFloat(0.01, 0.1).toFixed(2);
-    const image = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU`;
-    const createdAt = getRandomTimestamp(
-      new Date("2022-01-01").getTime(),
-      new Date("2022-12-31").getTime()
-    );
-    const drawsAt = getRandomTimestamp(
-      new Date("2022-01-01").getTime(),
-      new Date("2022-12-31").getTime()
-    );
-    const expiresIn = getRandomInt(7, 30);
-    const expiresAt = getRandomTimestamp(
-      new Date("2022-01-01").getTime(),
-      new Date("2022-12-31").getTime()
-    );
-    const participants = getRandomInt(10, 100);
-    const drawn = false;
-
-    lotteries.push({
-      id,
-      title,
-      description,
-      owner,
-      prize,
-      ticketPrice,
-      image,
-      createdAt,
-      drawsAt,
-      expiresAt,
-      participants,
-      drawn,
-    });
-  }
-
-  return lotteries;
-};
-
 function generateLotteryParticipants(count) {
   const participants = [];
   const accounts = [
@@ -139,9 +93,4 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-export {
-  generateLotteries,
-  generateLottery,
-  generateLotteryParticipants,
-  getPurchasedNumbers,
-};
+export { generateLottery, generateLotteryParticipants, getPurchasedNumbers };

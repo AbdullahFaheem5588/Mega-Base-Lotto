@@ -2,17 +2,12 @@ import React from "react";
 import SubHeader from "../../components/SubHeader";
 import LotteryTable from "../../components/LotteryTable";
 import { useLocation } from "react-router-dom";
-import {
-  generateLottery,
-  getPurchasedNumbers,
-  generateLotteryParticipants,
-} from "../../services/fakeData";
+import { getPurchasedNumbers } from "../../services/fakeData";
 import { Helmet } from "react-helmet";
 
 const LotteryDetails = () => {
   const location = useLocation();
-  const { id } = location.state || {};
-  const lottery = generateLottery(id);
+  const { lottery } = location.state || {};
   const luckyNumbers = getPurchasedNumbers(5);
   const purchasedNumbers = getPurchasedNumbers(5);
 
