@@ -84,7 +84,7 @@ const SubHeader = () => {
               Home
             </a>
             <a
-              href="aboutus"
+              href="/aboutus"
               className="hover:text-pink-400 transition-colors duration-300"
             >
               About Us
@@ -133,7 +133,7 @@ const SubHeader = () => {
                 </li>
                 <li>
                   <a
-                    href="aboutus"
+                    href="/aboutus"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
