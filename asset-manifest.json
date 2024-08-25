@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Mega-Base-Lotto/static/css/main.41569318.css",
-    "main.js": "/Mega-Base-Lotto/static/js/main.fb94f97f.js",
+    "main.js": "/Mega-Base-Lotto/static/js/main.af4bd03c.js",
     "static/js/488.ac5102d5.chunk.js": "/Mega-Base-Lotto/static/js/488.ac5102d5.chunk.js",
     "static/media/networking.png": "/Mega-Base-Lotto/static/media/networking.e2086a8ae9ff6aea7135.png",
     "static/media/LogoWithName.png": "/Mega-Base-Lotto/static/media/LogoWithName.711040ea39fdbcfff3b8.png",
     "index.html": "/Mega-Base-Lotto/index.html",
     "main.41569318.css.map": "/Mega-Base-Lotto/static/css/main.41569318.css.map",
-    "main.fb94f97f.js.map": "/Mega-Base-Lotto/static/js/main.fb94f97f.js.map",
+    "main.af4bd03c.js.map": "/Mega-Base-Lotto/static/js/main.af4bd03c.js.map",
     "488.ac5102d5.chunk.js.map": "/Mega-Base-Lotto/static/js/488.ac5102d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.41569318.css",
-    "static/js/main.fb94f97f.js"
+    "static/js/main.af4bd03c.js"
   ]
 }
