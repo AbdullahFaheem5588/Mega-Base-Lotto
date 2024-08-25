@@ -10,9 +10,9 @@ export const globalStates = {
       ticketPrice: "0.09",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-      createdAt: 1659999533651,
-      drawsAt: 1655980635722,
-      expiresAt: 1666948528200,
+      createdAt: 1704067200000, // January 1, 2025
+      drawsAt: 1727808000000, // June 1, 2025
+      expiresAt: 1759459200000, // December 31, 2025
       participants: 18,
       drawn: false,
     },
@@ -25,9 +25,9 @@ export const globalStates = {
       ticketPrice: "0.08",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-      createdAt: 1655331395163,
-      drawsAt: 1668827283506,
-      expiresAt: 1653632320833,
+      createdAt: 1704067200000, // January 15, 2025
+      drawsAt: 1730745600000, // July 15, 2025
+      expiresAt: 1755484800000, // December 15, 2025
       participants: 66,
       drawn: false,
     },
@@ -40,9 +40,9 @@ export const globalStates = {
       ticketPrice: "0.10",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-      createdAt: 1654475121072,
-      drawsAt: 1643605985667,
-      expiresAt: 1670501098564,
+      createdAt: 1704067200000, // February 1, 2025
+      drawsAt: 1733443200000, // August 1, 2025
+      expiresAt: 1759459200000, // December 31, 2025
       participants: 52,
       drawn: false,
     },
@@ -55,9 +55,9 @@ export const globalStates = {
       ticketPrice: "0.02",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-      createdAt: 1642144707927,
-      drawsAt: 1662293995183,
-      expiresAt: 1654930889947,
+      createdAt: 1704067200000, // March 1, 2025
+      drawsAt: 1735785600000, // September 1, 2025
+      expiresAt: 1752336000000, // December 1, 2025
       participants: 31,
       drawn: false,
     },
@@ -70,9 +70,9 @@ export const globalStates = {
       ticketPrice: "0.08",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA96DGvTREoPOb7gdmWkG66JHbbVhHJ539Nw&usqp=CAU",
-      createdAt: 1665347605077,
-      drawsAt: 1672197127880,
-      expiresAt: 1662041176297,
+      createdAt: 1704067200000, // April 1, 2025
+      drawsAt: 1735689600000, // October 1, 2025
+      expiresAt: 1752336000000, // December 1, 2025
       participants: 61,
       drawn: false,
     },
