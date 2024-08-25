@@ -69,7 +69,7 @@ const Header = () => {
             </button>
           </div>
           <div className="hidden md:flex flex items-center space-x-4 z-40">
-            <a href="/">
+            <a href="#/">
               <img
                 src={logowithname}
                 alt="Mega Base Lotto"
@@ -79,13 +79,13 @@ const Header = () => {
           </div>
           <div className="hidden md:flex items-center space-x-6 text-sm font-medium z-40">
             <a
-              href="/"
+              href="#/"
               className="hover:text-pink-400 transition-colors duration-300"
             >
               Home
             </a>
             <a
-              href="/aboutus"
+              href="#/aboutus"
               className="hover:text-pink-400 transition-colors duration-300"
             >
               About Us
@@ -114,7 +114,7 @@ const Header = () => {
         >
           <div className="flex flex-col h-full">
             <div className="flex flex-col items-center py-4 z-50">
-              <a href="/">
+              <a href="#/">
                 <img
                   src={logowithname}
                   alt="Mega Base Lotto"
@@ -124,7 +124,7 @@ const Header = () => {
               <ul className="flex flex-col w-full p-4 space-y-4 overflow-y-auto">
                 <li>
                   <a
-                    href="/"
+                    href="#/"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -133,7 +133,7 @@ const Header = () => {
                 </li>
                 <li>
                   <a
-                    href="/aboutus"
+                    href="#/aboutus"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -173,7 +173,7 @@ const Header = () => {
               where every token is a ticket to win big
             </p>
             <button
-              onClick={() => navigate("/create")}
+              onClick={() => navigate("#/create")}
               className="bg-white text-purple-900 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 relative z-10"
             >
               Create Lottery

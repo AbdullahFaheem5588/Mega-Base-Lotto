@@ -67,7 +67,7 @@ const SubHeader = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <a href="/">
+            <a href="#/">
               <img
                 src={logowithname}
                 alt="Mega Base Lotto"
@@ -78,13 +78,13 @@ const SubHeader = () => {
 
           <div className="hidden md:flex items-center space-x-6 text-sm font-medium z-1">
             <a
-              href="/"
+              href="#/"
               className="hover:text-pink-400 transition-colors duration-300"
             >
               Home
             </a>
             <a
-              href="/aboutus"
+              href="#/aboutus"
               className="hover:text-pink-400 transition-colors duration-300"
             >
               About Us
@@ -114,7 +114,7 @@ const SubHeader = () => {
         >
           <div className="flex flex-col h-full">
             <div className="flex flex-col items-center py-4 z-50">
-              <a href="/">
+              <a href="#/">
                 <img
                   src={logowithname}
                   alt="Mega Base Lotto"
@@ -124,7 +124,7 @@ const SubHeader = () => {
               <ul className="flex flex-col w-full p-4 space-y-4 overflow-y-auto">
                 <li>
                   <a
-                    href="/"
+                    href="#/"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -133,7 +133,7 @@ const SubHeader = () => {
                 </li>
                 <li>
                   <a
-                    href="/aboutus"
+                    href="#/aboutus"
                     className="flex items-center justify-center block py-4 px-6 text-lg font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-900 rounded-lg shadow-xl hover:from-purple-600 hover:to-purple-800 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
