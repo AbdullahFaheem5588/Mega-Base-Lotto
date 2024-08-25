@@ -173,7 +173,7 @@ const Header = () => {
               where every token is a ticket to win big
             </p>
             <button
-              onClick={() => navigate("#/create")}
+              onClick={() => navigate("/create")}
               className="bg-white text-purple-900 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 relative z-10"
             >
               Create Lottery
