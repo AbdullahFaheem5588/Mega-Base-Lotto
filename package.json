@@ -2,7 +2,7 @@
   "name": "mega_base_lotto",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://abdullahfaheem5588.github.io/Mega-Base-Lotto/",
+  "homepage": "https://abdullahfaheem5588.github.io/Mega-Base-Lotto/index",
   "dependencies": {
     "@cometchat-pro/chat": "^3.0.13",
     "@faker-js/faker": "^8.4.1",
