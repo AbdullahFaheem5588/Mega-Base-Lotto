@@ -2,6 +2,7 @@
   "name": "mega_base_lotto",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://abdullahfaheem5588.github.io/Mega-Base-Lotto/",
   "dependencies": {
     "@cometchat-pro/chat": "^3.0.13",
     "@faker-js/faker": "^8.4.1",
@@ -16,6 +17,7 @@
     "chai": "^5.1.1",
     "dotenv": "^16.4.5",
     "ethers": "^5.7.2",
+    "gh-pages": "^6.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
@@ -32,7 +34,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
